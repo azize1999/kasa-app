@@ -1,0 +1,42 @@
+$footer-bg-color: black; // Couleur de fond du footer
+$footer-text-color: white; // Couleur du texte du footer
+$footer-padding-bottom: 1rem; // Padding en bas du footer
+$footer-shadow: rgba(0, 0, 0, 0.1); // Couleur de l'ombre
+
+.footer {
+  background-color: $footer-bg-color; // Applique la couleur de fond
+  color: $footer-text-color; // Applique la couleur de texte
+  padding-bottom: $footer-padding-bottom; // Padding en bas
+  text-align: center; // Centre le texte
+  width: 100%; // Prend toute la largeur
+  box-shadow: 0 -4px 8px $footer-shadow; // Ombre supérieure
+  margin-top: 20px; // Marge en haut
+}
+
+.content {
+  max-width: 1200px; // Largeur maximale
+  margin: 0 auto; // Centre le contenu
+}
+
+.footer p {
+  margin: 0; // Supprime la marge
+  font-size: 1rem; // Taille de police
+  text-shadow: 1px 1px 2px $footer-shadow; // Ombre du texte
+}
+
+footer img {
+  height: 100px; // Hauteur de l'image
+  width: 100px; // Largeur de l'image
+}
+
+// Media Queries
+@media (max-width: 480px) {
+  .footer p {
+    font-size: 0.9rem; // Réduit la taille de la police
+  }
+
+  footer img {
+    height: 80px; // Réduit la hauteur de l'image
+    width: 80px; // Réduit la largeur de l'image
+  }
+}

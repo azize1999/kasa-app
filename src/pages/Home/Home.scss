@@ -1,0 +1,132 @@
+// Applique des marges externes et internes aux éléments .app et .header
+.app, .header {
+  margin: 0px 80px; // Marge extérieure horizontale de 80px, aucune marge verticale
+  padding: 0; // Aucune marge intérieure (padding)
+  font-family: Arial, sans-serif; // Définit la police Arial comme police principale
+}
+
+// Définit la largeur complète pour l'élément .home
+.home {
+  width: 100%; // Prend toute la largeur disponible
+}
+
+// Liste des logements avec mise en page flexbox
+.accommodation-list {
+  display: flex; // Affichage en flexbox
+  justify-content: space-evenly; // Espacement égal entre les éléments
+  flex-wrap: wrap; // Permet aux éléments de passer à la ligne si nécessaire
+  gap: 1.5rem; // Espace entre les éléments
+  margin-top: 2rem; // Marge en haut de 2 rem
+  background: #eee; // Couleur de fond gris clair
+  padding: 35px 20px; // Padding intérieur : 35px en haut/bas, 20px à gauche/droite
+  border-radius: 10px; // Bords arrondis de 10px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Ombre portée légère
+
+  // Style des liens à l'intérieur de .accommodation-list
+  a {
+    text-decoration: none; // Supprime le soulignement des liens
+    color: black; // Couleur du texte noir
+    box-sizing: border-box; // Inclut le padding et la bordure dans les dimensions de l'élément
+    display: block; // Affiche le lien comme un bloc
+    width: calc(33.333% - 1rem); // Chaque carte occupe un tiers de la largeur, moins 1 rem pour l'espacement
+  }
+
+  // Permet à la dernière ligne de flexbox d'être correctement alignée
+  &:after {
+    content: ''; // Pseudo-élément vide
+    flex: auto; // Utilise l'espace restant
+  }
+}
+
+// Carte de logement avec mise en page et styles
+.accommodation-card {
+  position: relative; // Positionnement pour placer les enfants en absolu (comme le titre)
+  display: flex; // Affiche la carte en flexbox pour organiser les enfants
+  flex-direction: column; // Dispose les enfants en colonne
+  background: #fff; // Fond blanc
+  border-radius: 10px; // Bords arrondis
+  overflow: hidden; // Cache tout ce qui dépasse les bords de la carte
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Ombre légère autour de la carte
+  transition: transform 0.2s, box-shadow 0.2s; // Animation de transformation et d'ombre
+
+  // Effet au survol (hover)
+  &:hover {
+    transform: translateY(-10px); // Déplace la carte vers le haut de 10px
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); // Accentue l'ombre au survol
+  }
+
+  // Styles pour les paragraphes à l'intérieur de .accommodation-card
+  p {
+    color: #555; // Couleur de texte gris foncé
+    margin: 0 1rem 1rem; // Marge extérieure : 1rem à gauche/droite et en bas
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); // Légère ombre du texte
+  }
+
+  // Style pour les images à l'intérieur de .accommodation-card
+  img {
+    width: 100%; // L'image prend toute la largeur du parent
+    height: 100%; // L'image prend toute la hauteur du parent
+    object-fit: cover; // Recadre l'image pour couvrir tout l'espace sans déformer
+  }
+
+  // Style pour le titre h2 à l'intérieur de .accommodation-card
+  h2 {
+    position: absolute; // Positionnement absolu par rapport à .accommodation-card
+    bottom: 0; // Aligné en bas
+    left: 0; // Aligné à gauche
+    right: 0; // Aligné à droite
+    margin: 0; // Pas de marge
+    padding: 30px 15px; // Padding autour du titre
+    font-size: 1.2rem; // Taille de police de 1.2 rem
+    font-weight: bold; // Texte en gras
+    color: white; // Texte blanc
+    background: linear-gradient(to top, rgb(0 0 0 / 45%), rgba(0, 0, 0, 0)); // Dégradé de fond transparent en haut, noir en bas
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); // Ombre du texte
+  }
+}
+
+// Assure que la dernière ligne de la flexbox est correctement alignée
+.accommodation-list:after {
+  content: ''; // Crée un pseudo-élément vide
+  flex: auto; // Remplit l'espace restant
+}
+
+// Media Queries pour les tailles d'écran moyennes (entre 768px et 1240px)
+@media (min-width: 768px) and (max-width: 1240px) {
+  // Ici, tu peux ajouter des styles spécifiques pour ces résolutions d'écran
+}
+
+// Media Queries pour les petits écrans (moins de 480px)
+@media (max-width: 480px) {
+  .app {
+    margin: 0; // Supprime la marge sur les petits écrans
+  }
+
+  .accommodation-list {
+    box-shadow: none; // Supprime l'ombre sur les petits écrans
+    margin-top: 20px; // Réduit la marge en haut
+    padding: 0; // Supprime le padding
+    background: none; // Supprime le fond de la liste
+  }
+
+  .accommodation-card {
+    width: 100%; // Chaque carte prend toute la largeur sur petit écran
+    height: 280px; // Hauteur réduite
+  }
+
+  .accommodation-card h2 {
+    font-size: 1.2rem; // Taille du titre réduite
+  }
+
+  .accommodation-list a {
+    width: 100%; // Les liens prennent toute la largeur
+  }
+
+  .home {
+    width: 90%; // Réduit la largeur de .home pour un meilleur ajustement sur les petits écrans
+  }
+
+  .header, .home {
+    margin: 0px 20px; // Réduit la marge horizontale sur petit écran
+  }
+}

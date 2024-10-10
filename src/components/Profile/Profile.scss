@@ -1,0 +1,15 @@
+
+.profile {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0 10px 0 0;
+  }
+
+  .host-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}

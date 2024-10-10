@@ -1,0 +1,52 @@
+$banner-height-desktop: 250px; // Hauteur du banner pour les écrans de bureau
+$banner-height-mobile: 120px; // Hauteur du banner pour les écrans mobiles
+$banner-text-color: white; // Couleur du texte
+$banner-font-size-desktop: 3vw; // Taille de la police pour les écrans de bureau
+$banner-font-size-mobile: 1.5rem; // Taille de la police pour les écrans mobiles
+$banner-border-radius-desktop: 25px; // Rayon de bordure pour les images sur bureau
+$banner-border-radius-mobile: 10px; // Rayon de bordure pour les images sur mobile
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: $banner-height-desktop; // Utilisation de la variable pour la hauteur
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $banner-border-radius-desktop; // Utilisation de la variable pour le rayon
+    filter: brightness(0.3);
+  }
+
+  p {
+    position: absolute;
+    color: $banner-text-color; // Utilisation de la variable pour la couleur
+    font-size: $banner-font-size-desktop; // Utilisation de la variable pour la taille de police
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+    font-family: 'Montserrat';
+  }
+}
+
+// Media Queries
+@media (max-width: 480px) {
+  .banner {
+    height: $banner-height-mobile; // Utilisation de la variable pour la hauteur mobile
+
+    p {
+      font-size: $banner-font-size-mobile; // Utilisation de la variable pour la taille de police mobile
+      margin: 0 35px 0 10px;
+      text-align: left;
+    }
+
+    img {
+      border-radius: $banner-border-radius-mobile; // Utilisation de la variable pour le rayon mobile
+    }
+  }
+}

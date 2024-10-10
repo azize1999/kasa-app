@@ -1,0 +1,61 @@
+$primary-color: #000000; // Couleur principale utilisée dans l'en-tête
+$logo-height: 150px; // Hauteur du logo
+$logo-width: 150px; // Largeur du logo
+
+.header {
+  display: flex; // Utilise le modèle de boîte flex pour l'alignement
+  align-items: center; // Centre verticalement les éléments
+  justify-content: space-between; // Espace entre les éléments dans l'en-tête
+  color: $primary-color; // Applique la couleur principale au texte
+  padding: 0 20px; // Ajoute un espacement horizontal
+
+  .logo {
+    img {
+      height: $logo-height; // Définit la hauteur du logo
+      width: $logo-width; // Définit la largeur du logo
+    }
+  }
+
+  .navbar {
+    ul {
+      list-style-type: none; // Supprime les puces de la liste
+      display: flex; // Affiche la liste horizontalement
+      gap: 1rem; // Espace entre les éléments de la liste
+
+      li {
+        a {
+          color: $primary-color; // Applique la couleur principale aux liens
+          text-decoration: none; // Supprime le soulignement par défaut
+          font-weight: 500; // Définit le poids de la police
+
+          &.active {
+            text-decoration: underline; // Souligne le lien actif
+          }
+
+          &:hover {
+            text-decoration: underline; // Souligne au survol
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media Queries pour responsive design
+@media (max-width: 480px) {
+  .header {
+    padding: 0; // Supprime le padding sur petits écrans
+
+    .logo img {
+      height: 60px; // Réduit la taille du logo sur petits écrans
+      width: 100px; // Réduit la largeur du logo
+    }
+
+    .navbar ul {
+      flex-direction: row; // Aligne les éléments horizontalement
+      font-variant: all-small-caps; // Met le texte en petites majuscules
+      align-items: center; // Centre verticalement
+      font-size: 15px; // Définit la taille de la police
+    }
+  }
+}

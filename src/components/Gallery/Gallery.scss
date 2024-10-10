@@ -1,0 +1,81 @@
+// Variablen für wiederverwendbare Werte
+$white-color: #fff;
+$font-size-lg: 2rem;
+$font-size-sm: 1.5rem;
+$gallery-height-lg: 500px;
+$gallery-height-sm: 220px;
+$chevron-position: 10px;
+$border-radius: 10px;
+$transition-time: 0.5s;
+$background-overlay: rgba(0, 0, 0, 0.5);
+
+.gallery {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  transition: opacity $transition-time ease-in-out;
+
+  &.active {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.image {
+  width: 100%;
+  border-radius: $border-radius;
+  height: $gallery-height-lg;
+  object-fit: cover;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $white-color;
+  cursor: pointer;
+  user-select: none;
+  font-size: $font-size-lg;
+  z-index: 1;
+
+  // Position der Pfeile
+  &.fa-chevron-left {
+    left: $chevron-position;
+  }
+
+  &.fa-chevron-right {
+    right: $chevron-position;
+  }
+}
+
+.slide-counter {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $background-overlay;
+  color: $white-color;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    .fa-chevron-left,
+    .fa-chevron-right {
+      font-size: $font-size-sm;
+    }
+
+    .image {
+      height: $gallery-height-sm;
+    }
+  }
+}
+
+@include mobile;

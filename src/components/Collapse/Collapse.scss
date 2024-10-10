@@ -1,0 +1,59 @@
+$primary-color: #ff6060; // Definiere hier die Farbe
+$text-light: #ffffff;    // Definiere hier den Text-Farbwert
+
+.collapse {
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-color; // Verwende die definierte Variable
+    color: $text-light;
+    cursor: pointer;
+    padding: 10px 15px;
+
+    h3 {
+      margin: 0;
+    }
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+
+  &-content {
+    padding: 15px 10px;
+    background-color: rgba(211, 211, 211, 0.18);
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
+    p, ul {
+      margin: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+
+      li {
+        padding: 5px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .collapse-header {
+    padding: 10px;
+  }
+
+  .collapse-content {
+    padding: 10px;
+  }
+}
